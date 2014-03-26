@@ -6,5 +6,6 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('',
     url(r'^articles/all/$', 'article.views.articles'),
     url(r'^articles/get/(?P<article_id>\d+)/$', 'article.views.article'),
+    url(r'^articles/addlike/(?P<article_id>\d+)/$', 'article.views.addlike'),
     url(r'^', 'article.views.articles'),
 )
