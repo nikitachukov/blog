@@ -5,9 +5,10 @@ from models import Article,Comments
 from forms import CommentForm
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
+from django.contrib import auth
 
 def articles(request):
-    return render_to_response('articles.html',{'articles':Article.objects.all()})
+    return render_to_response('articles.html',{'articles':Article.objects.all() ,'username':auth.get_user(request).username})
 
 def addlike(request,article_id):
     try:
@@ -31,6 +32,7 @@ def article(request,article_id):
     args['article']=Article.objects.get(id=article_id)
     args['comments']=Comments.objects.filter(comments_article_id=article_id)
     args['form']=comment_form
+    args['username']=auth.get_user(request).username
     return render_to_response('article.html',args)
 
 def addcomment(request,article_id):

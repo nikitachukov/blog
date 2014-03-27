@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = True
 TEMPLATE_DIRS = {
 os.path.join(BASE_DIR, 'templates'),
 os.path.join(BASE_DIR,'article','templates'),
+os.path.join(BASE_DIR,'loginsys','templates'),
 }
 
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article',
+    'loginsys',
 )
 
 MIDDLEWARE_CLASSES = (
